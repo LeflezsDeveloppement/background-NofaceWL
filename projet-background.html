@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Loin d'la 11th — Background groupe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Yellowtail&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,700&family=Barlow:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6E6CF; --bg2:#EFD3B0; --ink:#24112B; --muted:#6B4E5C;
+  --pink:#D3215F; --orange:#E0601C; --gold:#B57709; --teal:#0F7F78;
+  --line:rgba(36,17,43,.16); --card:rgba(255,249,240,.78);
+  --sunset:linear-gradient(90deg,#D3215F,#E0601C 55%,#E9A419);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#130818; --bg2:#21092A; --ink:#F7EADB; --muted:#C4ABB8;
+    --pink:#FF4F8B; --orange:#FF8A3D; --gold:#FFC24B; --teal:#38D1C2;
+    --line:rgba(247,234,219,.13); --card:rgba(43,15,52,.72);
+    --sunset:linear-gradient(90deg,#FF4F8B,#FF8A3D 55%,#FFC24B);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#130818; --bg2:#21092A; --ink:#F7EADB; --muted:#C4ABB8;
+  --pink:#FF4F8B; --orange:#FF8A3D; --gold:#FFC24B; --teal:#38D1C2;
+  --line:rgba(247,234,219,.13); --card:rgba(43,15,52,.72);
+  --sunset:linear-gradient(90deg,#FF4F8B,#FF8A3D 55%,#FFC24B);
+  color-scheme:dark;
+}
+:root{box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{background:var(--bg)}
+body{
+  margin:0;color:var(--ink);background:
+    radial-gradient(1200px 600px at 50% 100%,color-mix(in srgb,var(--pink) 18%,transparent),transparent 70%),
+    var(--bg);
+  font-family:"Barlow",system-ui,"Segoe UI",sans-serif;font-size:1.1rem;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+
+/* ===== HERO : SUNSET ===== */
+.hero{position:relative;min-height:clamp(600px,94vh,940px);overflow:hidden;display:flex;align-items:flex-start;justify-content:center;
+  padding-top:env(safe-area-inset-top,0px);
+  background:linear-gradient(180deg,#170A33 0%,#3E1158 20%,#8E1F6E 40%,#E0405F 58%,#FF8A3D 72%,#FFC857 82%);
+}
+.hero .stars{position:absolute;inset:0 0 50% 0;background-image:
+  radial-gradient(1.5px 1.5px at 12% 18%,#fff8,transparent),radial-gradient(1px 1px at 28% 8%,#fff9,transparent),
+  radial-gradient(1.5px 1.5px at 47% 22%,#fff6,transparent),radial-gradient(1px 1px at 66% 12%,#fff9,transparent),
+  radial-gradient(1.5px 1.5px at 82% 26%,#fff7,transparent),radial-gradient(1px 1px at 92% 6%,#fff8,transparent),
+  radial-gradient(1px 1px at 38% 33%,#fff5,transparent),radial-gradient(1px 1px at 5% 38%,#fff5,transparent)}
+.sun{
+  position:absolute;left:50%;bottom:17%;width:min(78vw,560px);aspect-ratio:1;border-radius:50%;
+  transform:translate(-50%,46%);
+  background:linear-gradient(180deg,#FFF1A8 0%,#FFC857 35%,#FF7B47 70%,#E63E6D 100%);
+  box-shadow:0 0 120px 30px rgba(255,140,80,.45);
+  -webkit-mask-image:linear-gradient(#000 0 40%,transparent 40% 42.5%,#000 42.5% 49%,transparent 49% 52.5%,#000 52.5% 58%,transparent 58% 63%,#000 63% 68%,transparent 68% 75%,#000 75%);
+          mask-image:linear-gradient(#000 0 40%,transparent 40% 42.5%,#000 42.5% 49%,transparent 49% 52.5%,#000 52.5% 58%,transparent 58% 63%,#000 63% 68%,transparent 68% 75%,#000 75%);
+  animation:rise 2.2s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes rise{from{transform:translate(-50%,95%)}to{transform:translate(-50%,46%)}}
+.sea{position:absolute;left:0;right:0;bottom:0;height:17%;
+  background:repeating-linear-gradient(180deg,rgba(255,138,61,.35) 0 2px,transparent 2px 11px),linear-gradient(180deg,#4A1158,#1A0820)}
+.sea::before{content:"";position:absolute;left:50%;top:0;width:min(60vw,420px);height:100%;transform:translateX(-50%);
+  background:repeating-linear-gradient(180deg,rgba(255,200,87,.55) 0 3px,transparent 3px 12px);
+  -webkit-mask-image:radial-gradient(closest-side,#000,transparent);mask-image:radial-gradient(closest-side,#000,transparent)}
+.palm{position:absolute;bottom:13%;fill:#12051A;pointer-events:none}
+.palm.p1{left:-3%;height:78%}
+.palm.p2{left:11%;height:52%;bottom:15%}
+.palm.p3{right:-3%;height:72%;transform:scaleX(-1)}
+.palm.p4{right:13%;height:44%;bottom:15%;transform:scaleX(-1)}
+.hero-inner{position:relative;z-index:2;text-align:center;padding-top:clamp(3.5rem,11vh,7rem)}
+.hero .kicker{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:1.15rem;letter-spacing:.14em;color:#FFE3C2;margin:0 0 .5rem}
+.hero h1{
+  font-family:"Pirata One","UnifrakturCook",Georgia,serif;font-weight:400;
+  font-size:clamp(4rem,14vw,10.5rem);line-height:.9;margin:0;
+  background:linear-gradient(180deg,#FFF6D2 0%,#FFD066 45%,#FF8A3D 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 5px 0 #2A0B3C) drop-shadow(0 18px 30px rgba(20,4,30,.55));
+}
+.hero .lede{max-width:31rem;margin:1.4rem auto 0;color:#FFF1E4;font-style:italic;font-size:1.15rem;line-height:1.55;text-shadow:0 2px 12px rgba(30,5,40,.6)}
+
+/* ===== TICKET ===== */
+.ticket{
+  position:relative;z-index:3;margin:-5rem 0 0;display:grid;grid-template-columns:1fr 230px;
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 30px 60px -30px rgba(60,10,60,.55);
+}
+.ticket .main{position:relative;padding:2.4rem 2.25rem 2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem 2rem;margin:0}
+.ticket .main::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--sunset);border-radius:18px 0 0 0}
+.ticket dt{font-size:.85rem;color:var(--muted);margin:0}
+.ticket dd{margin:.1rem 0 0;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.65rem;line-height:1.05;text-transform:uppercase}
+.ticket dd.hot{color:var(--pink)}
+.ticket .stub{border-left:2px dashed var(--line);padding:2rem 1.75rem;display:flex;flex-direction:column;justify-content:space-between;gap:1rem;
+  background:linear-gradient(160deg,color-mix(in srgb,var(--orange) 16%,transparent),transparent);border-radius:0 18px 18px 0}
+.ticket .stub .big{font-family:"Pirata One",serif;font-size:5.5rem;line-height:.8;color:var(--pink)}
+.ticket .stub .big small{display:block;font-family:"Barlow Condensed",sans-serif;font-size:1.05rem;font-weight:700;color:var(--muted);margin-top:.5rem}
+.ticket .stub p{margin:0;font-size:.92rem;color:var(--muted);line-height:1.4}
+.ticket::after{content:"";position:absolute;right:219px;width:22px;height:22px;border-radius:50%;background:var(--bg);border:1px solid var(--line)}
+.ticket::after{bottom:-12px}
+
+/* ===== ROUTE ===== */
+.route{margin:3.5rem 0 0;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.5rem}
+.route .city{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1;text-transform:uppercase;color:var(--teal)}
+.route .city small{display:block;font-family:"Barlow",sans-serif;font-weight:400;text-transform:none;font-size:.85rem;color:var(--muted);margin-top:.35rem}
+.route .city.to{text-align:right;font-family:"Yellowtail",cursive;font-weight:400;text-transform:none;font-size:clamp(2.1rem,4.8vw,3.1rem);color:var(--pink)}
+.route .city.to small{margin-top:0}
+.route svg{width:100%;height:44px;overflow:visible}
+.route .path{stroke:var(--line);stroke-width:2;stroke-dasharray:6 8;fill:none}
+.route .draw{stroke:url(#routeGrad);stroke-width:3.5;stroke-linecap:round;fill:none;stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.6s .8s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ===== CHAPTERS ===== */
+.chapters{padding:5rem 0 2rem}
+.chapter{display:grid;grid-template-columns:170px 1fr;gap:2.5rem;padding:3.5rem 0;border-top:1px solid var(--line)}
+.chapter .num{font-family:"Pirata One",serif;font-size:6.5rem;line-height:.8;color:var(--teal);position:sticky;top:calc(1.5rem + env(safe-area-inset-top,0px));align-self:start}
+.chapter .num small{display:block;font-family:"Yellowtail",cursive;font-size:1.55rem;color:var(--muted);margin-top:.6rem;line-height:1.1}
+.chapter.la .num{color:var(--orange)}
+.chapter.la .num small{color:var(--pink)}
+.chapter h2{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:clamp(2.1rem,4.6vw,3.2rem);line-height:.98;margin:0 0 1.5rem;text-transform:uppercase}
+.chapter .body{max-width:40rem}
+.chapter p{margin:0 0 1.1rem}
+.pull{
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;font-style:italic;
+  font-size:clamp(1.55rem,3.4vw,2.15rem);line-height:1.15;margin:2.1rem 0 !important;
+  padding:1rem 1.3rem 1.05rem 1.5rem;position:relative;border-radius:0 12px 12px 0;
+  background:linear-gradient(90deg,color-mix(in srgb,var(--teal) 14%,transparent),transparent 85%);
+}
+.pull::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--teal);border-radius:3px}
+.chapter.la .pull{background:linear-gradient(90deg,color-mix(in srgb,var(--pink) 16%,transparent),transparent 85%)}
+.chapter.la .pull::before{background:linear-gradient(180deg,var(--pink),var(--orange),var(--gold))}
+
+/* ===== SECTIONS ===== */
+section.block{padding:4.5rem 0;border-top:1px solid var(--line)}
+section.block > h2{font-family:"Pirata One",serif;font-weight:400;font-size:clamp(3rem,8vw,5.4rem);line-height:1;margin:0 0 2.5rem;
+  background:var(--sunset);-webkit-background-clip:text;background-clip:text;color:transparent;width:fit-content}
+.traits{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.trait{position:relative;padding:1.9rem 1.9rem 1.7rem;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.trait::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--sunset)}
+.trait h3{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.85rem;margin:0 0 .45rem;line-height:1.05;text-transform:uppercase}
+.trait p{margin:0;color:var(--muted)}
+
+/* highway */
+.goals{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;
+  background:linear-gradient(180deg,#2B2431,#1C1720);color:#F3E9DD;border-radius:22px;padding:3.6rem 2rem 2.2rem}
+.goals::before{content:"";position:absolute;left:2rem;right:2rem;top:1.75rem;height:4px;
+  background:repeating-linear-gradient(90deg,#FFC24B 0 30px,transparent 30px 52px)}
+.goal{position:relative}
+.goal::before{content:"";position:absolute;top:calc(-1.85rem - 9px);left:0;width:22px;height:22px;border-radius:50%;background:#1C1720;border:4px solid #38D1C2}
+.goal:nth-of-type(2)::before{border-color:#FF8A3D}
+.goal:nth-of-type(3)::before{border-color:#FF4F8B;background:#FF4F8B}
+.goal h3{font-family:"Yellowtail",cursive;font-weight:400;font-size:2.2rem;margin:0 0 .35rem;line-height:1;color:#FFC24B}
+.goal p{margin:0;font-size:1rem;color:#E6D8CC}
+.note{margin:2.2rem 0 0;max-width:42rem;font-style:italic;color:var(--muted)}
+
+/* ===== STAFF ===== */
+.staff{background:linear-gradient(160deg,#300F3D,#150819 70%);color:#F7EADB;border-radius:22px;padding:clamp(1.75rem,4vw,3rem);position:relative;overflow:hidden}
+.staff::after{content:"";position:absolute;right:-120px;bottom:-160px;width:380px;height:380px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,138,61,.35),transparent 65%);pointer-events:none}
+.staff .head{display:flex;justify-content:space-between;align-items:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:2rem;position:relative;z-index:1}
+.staff .title{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap}
+.staff h2{font-family:"Pirata One",serif;font-weight:400;font-size:clamp(2.4rem,5.5vw,3.6rem);line-height:.95;margin:0;color:#FFD066}
+.plate{display:inline-block;background:#FBFBF7;color:#1B2A63;border:3px solid #1B2A63;border-radius:10px;padding:.15rem 1.1rem .35rem;text-align:center;box-shadow:0 0 0 3px #FBFBF7,0 8px 20px rgba(0,0,0,.4);transform:rotate(-2deg)}
+.plate .state{display:block;font-family:"Yellowtail",cursive;color:#C8102E;font-size:1.25rem;line-height:1.2}
+.plate .num{display:block;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:2.1rem;letter-spacing:.1em;line-height:1}
+.staff button{
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:.03em;
+  background:linear-gradient(90deg,#FF4F8B,#FF8A3D);color:#fff;border:0;border-radius:999px;padding:.75rem 1.5rem;cursor:pointer;
+  box-shadow:0 10px 24px -8px rgba(255,79,139,.7)}
+.staff button:focus-visible{outline:3px solid #FFC24B;outline-offset:3px}
+.staff dl{position:relative;z-index:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1.25rem 2rem;margin:0 0 2rem;padding-bottom:2rem;border-bottom:1px solid rgba(247,234,219,.18)}
+.staff dt{font-size:.85rem;color:#C4ABB8}
+.staff dd{margin:.1rem 0 0;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.35rem;line-height:1.15;text-transform:uppercase}
+.staff .txt{position:relative;z-index:1}
+.staff .txt p{margin:0 0 1rem;max-width:46rem;color:#EADCCF}
+.staff .txt p:last-child{margin:0}
+
+/* ===== FOOTER ===== */
+footer{position:relative;margin-top:3rem;padding:5rem 1rem 4rem;text-align:center;overflow:hidden;
+  background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--pink) 22%,transparent) 60%,color-mix(in srgb,var(--orange) 30%,transparent))}
+footer .sign{position:relative;display:block;font-family:"Pirata One",serif;font-size:clamp(3.4rem,12vw,7.5rem);line-height:1;background:var(--sunset);-webkit-background-clip:text;background-clip:text;color:transparent}
+footer .from{position:relative;font-family:"Yellowtail",cursive;font-size:clamp(1.6rem,4vw,2.3rem);color:var(--ink);opacity:.85}
+footer .palm{bottom:0;fill:var(--ink);opacity:.16;height:85%}
+footer .palm.p1{left:2%}footer .palm.p3{right:2%;transform:scaleX(-1)}
+
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:820px){
+  .ticket{grid-template-columns:1fr}
+  .ticket .main{grid-template-columns:repeat(2,1fr)}
+  .ticket .main::before{border-radius:18px 18px 0 0}
+  .ticket .stub{border-left:0;border-top:2px dashed var(--line);flex-direction:row;align-items:flex-end;border-radius:0 0 18px 18px}
+  .ticket::before,.ticket::after{display:none}
+  .chapter{grid-template-columns:1fr;gap:.75rem}
+  .chapter .num{position:static;font-size:4.6rem;display:flex;align-items:baseline;gap:1rem}
+  .chapter .num small{display:inline;margin:0}
+  .traits{grid-template-columns:1fr}
+  .goals{grid-template-columns:1fr;padding:2rem 1.5rem 2rem 4rem}
+  .goals::before{left:1.75rem;right:auto;top:2rem;bottom:2rem;width:4px;height:auto;background:repeating-linear-gradient(180deg,#FFC24B 0 24px,transparent 24px 42px)}
+  .goal::before{top:.5rem;left:calc(-2.25rem - 9px)}
+  .hero .palm.p2,.hero .palm.p4{display:none}
+  .hero .palm.p1,.hero .palm.p3{height:46%}
+  .hero .palm.p1{left:-16%}.hero .palm.p3{right:-16%}
+}
+@media (max-width:480px){
+  .ticket .main{padding:2rem 1.4rem 1.6rem}
+  .ticket dd{font-size:1.35rem}
+  .route{grid-template-columns:1fr 1fr}
+  .route svg{grid-column:1/-1;grid-row:2}
+}
+@media (prefers-reduced-motion:reduce){
+  .sun{animation:none}
+  .route .draw{animation:none;stroke-dashoffset:0}
+}
+
+/* ================= MOTION LAYER ================= */
+body{overflow-x:clip}
+.progress{position:fixed;left:0;right:0;top:0;height:4px;z-index:50;background:var(--sunset);transform-origin:0 50%;transform:scaleX(0)}
+
+/* hero entrance + ambiance */
+.hero h1{animation:titleIn 1.6s .3s cubic-bezier(.2,.7,.2,1) both}
+@keyframes titleIn{from{opacity:0;letter-spacing:.25em;transform:translateY(30px);filter:blur(12px) drop-shadow(0 5px 0 #2A0B3C)}to{opacity:1}}
+.hero .kicker{animation:fadeUp 1s .1s both}
+.hero .lede{animation:fadeUp 1.2s 1.2s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}}
+.hero .stars{animation:twinkle 3.5s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.35}to{opacity:1}}
+.hero .palm{transform-origin:50% 100%;animation:sway 7s ease-in-out infinite alternate}
+.hero .palm.p2,.hero .palm.p4{animation-duration:5.5s;animation-delay:-2s}
+@keyframes sway{from{rotate:-1.6deg}to{rotate:1.8deg}}
+.sun::after{content:"";position:absolute;inset:-10%;border-radius:50%}
+.hero .glow{position:absolute;left:50%;bottom:17%;width:min(110vw,900px);aspect-ratio:2/1;transform:translate(-50%,20%);
+  background:radial-gradient(closest-side,rgba(255,170,90,.55),transparent);animation:pulse 4s ease-in-out infinite alternate;pointer-events:none}
+@keyframes pulse{from{opacity:.55;scale:.95}to{opacity:1;scale:1.05}}
+.scroll-cue{position:absolute;z-index:4;left:50%;bottom:2.2rem;translate:-50% 0;display:flex;flex-direction:column;align-items:center;gap:.3rem;
+  font-family:"Barlow Condensed",sans-serif;font-weight:600;letter-spacing:.12em;color:#FFE3C2;font-size:.9rem;opacity:.85}
+.scroll-cue span{width:22px;height:36px;border:2px solid #FFE3C2;border-radius:12px;position:relative}
+.scroll-cue span::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:8px;border-radius:2px;background:#FFE3C2;translate:-50% 0;animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+
+/* reveal */
+.js .rv{opacity:0;translate:0 44px;transition:opacity .9s ease,translate 1s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .rv.from-l{translate:-70px 0}
+.js .rv.from-r{translate:70px 0}
+.js .rv.pop{translate:0 0;scale:.6;rotate:-10deg;transition:opacity .8s ease,scale 1s cubic-bezier(.3,1.5,.5,1),rotate 1s cubic-bezier(.3,1.5,.5,1)}
+.js .rv.in{opacity:1;translate:0 0;scale:1;rotate:0deg}
+.pull::before{transform-origin:50% 0;transition:transform 1s .2s cubic-bezier(.2,.7,.2,1)}
+.js .pull:not(.in)::before{transform:scaleY(0)}
+.pull .w{display:inline-block;opacity:.12;transition:opacity .5s ease,filter .5s ease;filter:blur(3px)}
+.pull.in .w{opacity:1;filter:none}
+.chapter h2{background:linear-gradient(90deg,var(--ink),var(--ink)) no-repeat 0 100%/0 6px;padding-bottom:.35rem;transition:background-size 1.2s .3s cubic-bezier(.2,.7,.2,1)}
+.chapter h2.in{background-size:3.5rem 6px}
+.chapter.la h2{background-image:var(--sunset)}
+.chapter:not(.la) h2{background-image:linear-gradient(90deg,var(--teal),var(--teal))}
+
+/* marquee */
+.marquee{position:relative;overflow:hidden;padding:1.1rem 0;margin:4rem 0 0;background:var(--ink);color:var(--bg);rotate:-1.5deg;width:104%;margin-left:-2%}
+.marquee.alt{background:var(--sunset);color:#1A0820;rotate:1.5deg;margin:2rem 0 -1rem -2%}
+.marquee .track{display:flex;width:max-content;animation:slide 28s linear infinite}
+.marquee.alt .track{animation-direction:reverse;animation-duration:34s}
+.marquee .track span{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:clamp(1.6rem,3.6vw,2.6rem);text-transform:uppercase;white-space:nowrap;padding-right:2.2rem;display:flex;align-items:center;gap:2.2rem}
+.marquee .track span i{font-style:normal;font-family:"Yellowtail",cursive;text-transform:none;font-weight:400;color:var(--pink)}
+.marquee.alt .track span i{color:#fff}
+.marquee .track span b{font-weight:800;color:transparent;-webkit-text-stroke:1.5px currentColor}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* flight */
+.flight{position:relative;width:100vw;margin:2rem 0 2rem calc(50% - 50vw);padding:5rem clamp(1.25rem,4vw,3rem);overflow:hidden;
+  background:linear-gradient(180deg,#0E1A28 0%,#24123A 45%,#7A1F5E 80%,#D9466A 100%);color:#F7EADB;text-align:center}
+.flight h3{font-family:"Pirata One",serif;font-weight:400;font-size:clamp(2.6rem,7vw,5rem);line-height:1;margin:0;color:#FFD066}
+.flight p{margin:.6rem auto 0;max-width:34rem;color:#EBD9E3;font-style:italic}
+.flight .map{max-width:980px;margin:2.5rem auto 0;position:relative}
+.flight svg{width:100%;height:auto;overflow:visible;display:block}
+.flight .arc-bg{stroke:rgba(255,255,255,.18);stroke-width:2;stroke-dasharray:4 10;fill:none}
+.flight .arc{stroke:url(#flightGrad);stroke-width:4;fill:none;stroke-linecap:round;stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 3.2s cubic-bezier(.5,0,.2,1)}
+.flight.in .arc{stroke-dashoffset:0}
+.flight .dot{fill:#38D1C2}.flight .dot.to{fill:#FF8A3D}
+.flight .ring{fill:none;stroke-width:2;transform-box:fill-box;transform-origin:center;animation:ring 2.4s ease-out infinite}
+.flight .ring{stroke:#38D1C2}.flight .ring.to{stroke:#FF8A3D;animation-delay:1.2s}
+@keyframes ring{from{scale:1;opacity:.9}to{scale:4.5;opacity:0}}
+.flight .lbl{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:30px;fill:#F7EADB;text-transform:uppercase}
+.flight .lbl.to{font-family:"Yellowtail",cursive;font-weight:400;font-size:40px;fill:#FFC857;text-transform:none}
+.flight .sub{font-family:"Barlow",sans-serif;font-size:16px;fill:#C9B3C4}
+.flight .plane{fill:#fff}
+.flight .stats{display:flex;justify-content:center;gap:clamp(1.5rem,6vw,5rem);flex-wrap:wrap;margin-top:2rem}
+.flight .stats div{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1;color:#fff}
+.flight .stats small{display:block;font-family:"Barlow",sans-serif;font-weight:400;font-size:.9rem;color:#E6CFDC;margin-top:.35rem}
+
+/* traits tilt */
+.traits{perspective:900px}
+.trait{transition:transform .25s ease,box-shadow .3s ease;transform-style:preserve-3d}
+.trait:hover{box-shadow:0 24px 50px -24px color-mix(in srgb,var(--pink) 60%,transparent)}
+.trait::before{transform-origin:0 50%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1) .2s}
+.js .trait:not(.in)::before{transform:scaleX(0)}
+
+/* highway car */
+.goals .car{position:absolute;top:calc(1.75rem - 13px);left:1.4rem;width:58px;height:28px;z-index:2;transition:left 4s cubic-bezier(.45,0,.2,1) .3s;filter:drop-shadow(0 0 10px rgba(255,79,139,.8))}
+.goals.in .car{left:calc(100% - 4.6rem)}
+.goal::before{transition:background .4s ease,box-shadow .4s ease}
+.goals.in .goal:nth-of-type(2)::before{transition-delay:.9s}
+.goals.in .goal:nth-of-type(3)::before{transition-delay:2.4s}
+.goals.in .goal::before{box-shadow:0 0 0 6px rgba(255,194,75,.15)}
+
+/* objectives grid */
+.quests-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin:4.5rem 0 1.75rem}
+.quests-head h3{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:clamp(2rem,4.5vw,3rem);line-height:1;margin:0;text-transform:uppercase}
+.legend{display:flex;gap:.6rem;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.85rem;padding:.15rem .6rem;border-radius:999px;line-height:1.5;white-space:nowrap}
+.chip.c{background:color-mix(in srgb,var(--teal) 20%,transparent);color:var(--teal)}
+.chip.m{background:color-mix(in srgb,var(--orange) 20%,transparent);color:var(--orange)}
+.chip.l{background:color-mix(in srgb,var(--pink) 20%,transparent);color:var(--pink)}
+.quests{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.quest{position:relative;padding:1.75rem 1.6rem 1.6rem;border-radius:20px;background:var(--card);border:1px solid var(--line);overflow:hidden;isolation:isolate;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease}
+.quest::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:2px;background:conic-gradient(from var(--a,0deg),#38D1C2,#FF4F8B,#FF8A3D,#FFC24B,#38D1C2);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .35s ease;z-index:-1;animation:spin 4s linear infinite}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+.quest:hover{transform:translateY(-6px)}
+.quest:hover::after{opacity:1}
+.quest .ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:var(--sunset);color:#fff;margin-bottom:1.1rem;box-shadow:0 10px 24px -10px var(--pink)}
+.quest .ic svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.quest:hover .ic{animation:wiggle .6s ease}
+@keyframes wiggle{25%{rotate:-10deg}50%{rotate:8deg}75%{rotate:-4deg}}
+.quest h4{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.7rem;line-height:1;margin:0 0 1rem;text-transform:uppercase}
+.quest ul{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
+.quest li{display:grid;grid-template-columns:auto 1fr;gap:.25rem .7rem;font-size:.98rem;line-height:1.45;align-items:start}
+.quest li::before{content:"";width:16px;height:16px;border-radius:5px;border:2px solid var(--line);margin-top:.2rem;grid-row:span 2}
+.quest li .chip{justify-self:start;font-size:.75rem;padding:0 .5rem}
+.eq{display:flex;align-items:flex-end;gap:4px;height:26px;position:absolute;top:1.9rem;right:1.6rem}
+.eq i{width:5px;border-radius:3px;background:var(--sunset);animation:eq 1s ease-in-out infinite alternate}
+.eq i:nth-child(1){animation-delay:-.2s}.eq i:nth-child(2){animation-delay:-.6s}.eq i:nth-child(3){animation-delay:-.1s}.eq i:nth-child(4){animation-delay:-.8s}.eq i:nth-child(5){animation-delay:-.4s}.eq i:nth-child(6){animation-delay:-.7s}
+@keyframes eq{from{height:4px}to{height:26px}}
+.quest .badge{position:absolute;top:1.9rem;right:1.4rem;font-family:"Yellowtail",cursive;font-size:1.5rem;color:var(--pink);rotate:-6deg}
+
+@media (max-width:900px){.quests{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:820px){.goals .car{display:none}.flight .lbl{font-size:40px}.flight .lbl.to{font-size:52px}.flight .sub{font-size:22px}}
+@media (max-width:600px){.quests{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .js .rv{opacity:1;translate:0 0;scale:1;rotate:0deg}
+  .pull .w{opacity:1;filter:none}
+  .flight .arc{stroke-dashoffset:0}
+}
+
+/* ================= GROUP PAGE ================= */
+.back{position:fixed;z-index:60;top:calc(.9rem + env(safe-area-inset-top,0px));left:.9rem;display:inline-flex;align-items:center;gap:.4rem;
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1rem;padding:.45rem .95rem .45rem .7rem;border-radius:999px;
+  background:rgba(20,6,28,.55);color:#FFE3C2;text-decoration:none;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,227,194,.2);transition:background .3s}
+.back:hover{background:rgba(211,33,95,.85)}
+.back svg{width:16px;height:16px}
+.sec-intro{max-width:40rem;color:var(--muted);font-style:italic;margin:-1.5rem 0 2.5rem}
+
+/* road timeline */
+.tl{position:relative;padding-left:5rem;margin-top:.5rem}
+.tl::before{content:"";position:absolute;left:1.5rem;top:0;bottom:0;width:30px;border-radius:15px;background:linear-gradient(180deg,#2B2431,#1C1720)}
+.tl::after{content:"";position:absolute;left:calc(1.5rem + 14px);top:14px;bottom:14px;width:2px;background:repeating-linear-gradient(180deg,#FFC24B 0 18px,transparent 18px 34px)}
+.tl .rider{position:absolute;left:calc(1.5rem + 15px);top:0;width:56px;height:28px;z-index:3;translate:-50% -50%;rotate:90deg;filter:drop-shadow(0 0 10px rgba(255,79,139,.85));transition:top .15s linear}
+.step{position:relative;padding:0 0 3rem}
+.step:last-child{padding-bottom:.5rem}
+.step::before{content:"";position:absolute;left:calc(-5rem + 1.5rem + 15px - 13px);top:.35rem;width:26px;height:26px;border-radius:50%;background:var(--bg);border:4px solid var(--line);z-index:2;transition:border-color .5s,background .5s,box-shadow .5s}
+.step.lit::before{border-color:var(--pink);background:var(--pink);box-shadow:0 0 0 7px color-mix(in srgb,var(--pink) 20%,transparent)}
+.step .when{font-family:"Yellowtail",cursive;font-size:1.6rem;color:var(--pink);line-height:1}
+.step h3{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:clamp(1.7rem,3.6vw,2.4rem);line-height:1;margin:.25rem 0 .6rem;text-transform:uppercase}
+.step p{margin:0;max-width:40rem}
+.step .who{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+.step .who span{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.85rem;padding:.1rem .6rem;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.step.open h3{background:var(--sunset);-webkit-background-clip:text;background-clip:text;color:transparent;width:fit-content}
+
+/* roster */
+.roster{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.mate{position:relative;display:flex;flex-direction:column;gap:.35rem;padding:1.6rem 1.4rem 1.4rem;border-radius:20px;background:var(--card);border:1px solid var(--line);text-decoration:none;color:inherit;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.mate::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--sunset)}
+.mate .role{font-family:"Yellowtail",cursive;font-size:1.5rem;color:var(--pink);line-height:1}
+.mate h3{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.7rem;margin:0;line-height:1;text-transform:uppercase}
+.mate p{margin:.3rem 0 .8rem;font-size:.96rem;color:var(--muted);line-height:1.5}
+.mate .go{margin-top:auto;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1rem;color:var(--ink);display:inline-flex;gap:.35rem;align-items:center}
+.mate .go svg{width:16px;height:16px;transition:translate .3s}
+.mate:hover{box-shadow:0 24px 50px -24px color-mix(in srgb,var(--pink) 60%,transparent)}
+.mate:hover .go svg{translate:4px 0}
+.mate.tbd{border-style:dashed;background:transparent}
+.mate.tbd::before{background:var(--line)}
+.mate.tbd .role{color:var(--muted)}
+
+/* codes */
+.codes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border-top:2px solid var(--ink)}
+.codes li{padding:1.5rem 1.25rem 1.5rem 0;border-bottom:1px solid var(--line);transition:background .3s}
+.codes li:hover{background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--pink) 10%,transparent))}
+.codes b{display:block;font-family:"Pirata One",serif;font-weight:400;font-size:3.4rem;line-height:.9;background:var(--sunset);-webkit-background-clip:text;background-clip:text;color:transparent;width:fit-content}
+.codes strong{display:block;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.35rem;text-transform:uppercase;margin:.35rem 0 .25rem;line-height:1.1}
+.codes span{font-size:.95rem;color:var(--muted);line-height:1.45;display:block}
+
+/* tabs */
+.tabs-bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
+.tabs{position:relative;display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.35rem;max-width:100%;overflow-x:auto}
+.tab{position:relative;z-index:1;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.2rem;text-transform:uppercase;padding:.6rem 1.4rem;border:0;background:none;color:var(--muted);cursor:pointer;border-radius:999px;white-space:nowrap;transition:color .35s}
+.tab[aria-selected="true"]{color:#fff}
+.tab:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.ind{position:absolute;top:.35rem;bottom:.35rem;left:.35rem;width:0;border-radius:999px;transition:left .5s cubic-bezier(.3,1.3,.5,1),width .5s cubic-bezier(.3,1.3,.5,1),background .5s}
+.ind.t-legal{background:linear-gradient(90deg,#0F7F78,#38D1C2)}
+.ind.t-illegal{background:linear-gradient(90deg,#7A0F2E,#D3215F)}
+.ind.t-evo{background:linear-gradient(90deg,#D3215F,#E0601C 55%,#E9A419)}
+.js .panel:not(.on){display:none}
+.panel.on > *{animation:panelIn .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
+@keyframes panelIn{from{opacity:0;transform:translateY(30px) scale(.97)}}
+.panel .lead{max-width:44rem;margin:0 0 1.75rem;color:var(--muted)}
+.panel[data-p="illegal"] .quest .ic{background:linear-gradient(135deg,#7A0F2E,#D3215F)}
+.panel[data-p="legal"] .quest .ic{background:linear-gradient(135deg,#0F7F78,#38D1C2)}
+.panel[data-p="illegal"] .quest::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent 0 22px,color-mix(in srgb,var(--pink) 5%,transparent) 22px 44px);z-index:-1}
+
+/* ladder */
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem}
+.lvl{padding:1.3rem 1.2rem;border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.lvl .tier{font-family:"Pirata One",serif;font-size:2.6rem;line-height:.9;background:var(--sunset);-webkit-background-clip:text;background-clip:text;color:transparent;width:fit-content}
+.lvl h4{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.4rem;text-transform:uppercase;margin:.35rem 0 .1rem;line-height:1}
+.lvl small{display:block;color:var(--pink);font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:.9rem}
+.lvl p{margin:.6rem 0 .9rem;font-size:.95rem;color:var(--muted);line-height:1.45}
+.bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:4px;background:var(--sunset);transition:width 1.4s cubic-bezier(.2,.7,.2,1) .2s}
+.panel.on .bar i{width:var(--w)}
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.way{position:relative;border-radius:22px;overflow:hidden;background:var(--card);border:1px solid var(--line);transition:transform .3s,box-shadow .3s}
+.way .top{padding:1.4rem 1.5rem 1.2rem;color:#fff;display:flex;align-items:flex-end;gap:.9rem}
+.way .top b{font-family:"Pirata One",serif;font-weight:400;font-size:4rem;line-height:.75}
+.way .top span{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.5rem;text-transform:uppercase;line-height:1.05}
+.way.a .top{background:linear-gradient(135deg,#0F7F78,#38D1C2)}
+.way.b .top{background:linear-gradient(135deg,#4A0B22,#D3215F)}
+.way.c .top{background:linear-gradient(135deg,#3E1158,#E0601C)}
+.way .bd{padding:1.25rem 1.5rem 1.5rem}
+.way p{margin:0 0 .9rem;font-size:.98rem;line-height:1.5}
+.way .risk{font-size:.9rem;color:var(--muted);font-style:italic;margin:0}
+.way:hover{box-shadow:0 26px 50px -26px color-mix(in srgb,var(--pink) 60%,transparent)}
+
+/* server scenes */
+.scenes{display:flex;flex-wrap:wrap;gap:.7rem}
+.scene{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.15rem;padding:.55rem 1.1rem;border-radius:999px;background:var(--card);border:1px solid var(--line);transition:transform .3s,background .3s,color .3s}
+.scene:hover{transform:translateY(-3px) rotate(-1.5deg);background:var(--pink);color:#fff}
+
+@media (max-width:1000px){.roster,.ladder{grid-template-columns:repeat(2,1fr)}.ways{grid-template-columns:1fr}}
+@media (max-width:600px){.roster,.ladder{grid-template-columns:1fr}.tl{padding-left:4rem}.tl::before{left:.9rem}.tl::after{left:calc(.9rem + 14px)}.tl .rider{left:calc(.9rem + 15px)}.step::before{left:calc(-4rem + .9rem + 15px - 13px)}.tab{padding:.55rem .9rem;font-size:1.05rem}}
+</style>
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="palm" viewBox="0 0 220 420">
+    <path d="M96 420 C104 330 90 240 112 132 L121 134 C102 240 116 330 114 420 Z"/>
+    <path d="M116 128 C80 96 36 98 4 150 C40 120 78 116 114 136 Z"/>
+    <path d="M116 128 C156 92 196 104 218 156 C184 122 150 118 116 136 Z"/>
+    <path d="M116 128 C88 72 56 52 18 58 C58 70 86 92 112 134 Z"/>
+    <path d="M116 128 C142 70 176 52 214 64 C174 74 146 96 120 134 Z"/>
+    <path d="M116 130 C110 76 124 36 150 10 C134 48 124 88 120 132 Z"/>
+    <path d="M116 130 C104 84 82 50 56 24 C84 60 102 94 112 134 Z"/>
+    <circle cx="110" cy="138" r="6"/><circle cx="122" cy="140" r="5"/>
+  </symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="car" viewBox="0 0 58 28"><path d="M4 18 L8 10 Q10 6 16 6 L34 6 Q39 6 43 10 L50 14 Q55 15 55 19 L55 21 L3 21 Z" fill="#FF4F8B"/><path d="M14 9 L20 9 L20 13 L11 13 Z M23 9 L32 9 Q36 9 39 13 L23 13 Z" fill="#2B0F3D" opacity=".8"/><circle cx="14" cy="21" r="5" fill="#1C1720" stroke="#FFC24B" stroke-width="2"/><circle cx="44" cy="21" r="5" fill="#1C1720" stroke="#FFC24B" stroke-width="2"/></symbol>
+</defs></svg>
+
+<a class="back" href="index.html"><svg viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Accueil</a>
+
+<header class="hero">
+  <div class="stars"></div>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="sun" aria-hidden="true"></div>
+  <svg class="palm p1" viewBox="0 0 220 420" aria-hidden="true"><use href="#palm"/></svg>
+  <svg class="palm p2" viewBox="0 0 220 420" aria-hidden="true"><use href="#palm"/></svg>
+  <svg class="palm p3" viewBox="0 0 220 420" aria-hidden="true"><use href="#palm"/></svg>
+  <svg class="palm p4" viewBox="0 0 220 420" aria-hidden="true"><use href="#palm"/></svg>
+  <div class="sea" aria-hidden="true"></div>
+  <div class="scroll-cue" aria-hidden="true"><span></span>Défiler</div>
+  <div class="hero-inner wrap">
+    <p class="kicker">Background groupe · Projet WL</p>
+    <h1>Loin d'la 11th</h1>
+    <p class="lede">Avant d'être un groupe, c'était une rue. Aujourd'hui, c'est tout ce qu'il leur reste.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="ticket">
+    <dl class="main">
+      <div><dt>Origine</dt><dd>Rockford / 11th</dd></div>
+      <div><dt>Affiliation</dt><dd>Black Disciple Gangsters</dd></div>
+      <div><dt>Rivaux</dt><dd class="hot">Satan Disciples</dd></div>
+      <div><dt>Motif du départ</dt><dd>Procédure RICO</dd></div>
+      <div><dt>Base</dt><dd>Sandy Shores</dd></div>
+      <div><dt>Terrain de jeu</dt><dd>Los Santos</dd></div>
+    </dl>
+    <div class="stub">
+      <div class="big">4<small>membres</small></div>
+      <p>Ce qu'il reste d'un set entier. Pas un de plus.</p>
+    </div>
+  </div>
+  <div class="route" aria-label="Trajet de Chicago à Sandy Shores">
+    <div class="city">Chicago<small>Illinois</small></div>
+    <svg viewBox="0 0 600 40" preserveAspectRatio="none" aria-hidden="true">
+      <defs><linearGradient id="routeGrad" x1="0" x2="1"><stop offset="0" stop-color="#38D1C2"/><stop offset=".6" stop-color="#FF4F8B"/><stop offset="1" stop-color="#FF8A3D"/></linearGradient></defs>
+      <path class="path" d="M5 30 Q300 -10 595 30"/><path class="draw" d="M5 30 Q300 -10 595 30"/>
+    </svg>
+    <div class="city to">Sandy Shores<small>San Andreas</small></div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true"><div class="track">
+  <span>Rockford <i>la onzième</i> <b>Black Disciple Gangsters</b> <i>loi RICO</i> Sandy Shores <b>Quatre membres</b> <i>loin d'la 11th</i></span>
+  <span>Rockford <i>la onzième</i> <b>Black Disciple Gangsters</b> <i>loi RICO</i> Sandy Shores <b>Quatre membres</b> <i>loin d'la 11th</i></span>
+</div></div>
+
+<main class="wrap">
+
+  <section class="chapters" aria-label="Histoire du groupe">
+    <article class="chapter">
+      <div class="num">I<small>La onzième</small></div>
+      <div class="body">
+        <h2>Une rue avant d'être un groupe</h2>
+        <p>Ils ont grandi dans les mêmes blocs de Rockford, autour de la 11th. Mêmes écoles, mêmes trottoirs, mêmes histoires racontées par les plus vieux. Avant d'être des Black Disciple Gangsters, ils étaient simplement des gamins du même coin qui se couvraient les uns les autres.</p>
+        <p>Le set leur a donné ce que la maison ne donnait pas toujours : une place, des noms qu'on prononçait avec respect, des gens sur qui compter. En échange, il fallait porter ses rivalités. Celle avec les Satan Disciples était la plus ancienne, et la plus lourde.</p>
+        <p class="pull">Un regard, une rumeur, un nom prononcé trop fort. Il n'en fallait jamais beaucoup plus.</p>
+        <p>Chacun avait ses raisons d'être là. Mais tous partageaient la même règle : on ne laisse personne derrière.</p>
+      </div>
+    </article>
+
+    <article class="chapter">
+      <div class="num">II<small>RICO</small></div>
+      <div class="body">
+        <h2>Des noms dans un dossier</h2>
+        <p>Quand l'enquête fédérale est tombée, elle n'a pas visé une personne : elle a visé le groupe entier. La loi RICO permet de poursuivre une organisation comme un tout. Du jour au lendemain, appartenir au set devenait une preuve en soi.</p>
+        <p>Les arrestations se sont enchaînées. Les plus anciens sont tombés les premiers, puis les autres ont commencé à disparaître du quartier : en détention, en fuite, ou simplement partis sans prévenir. Les menaces de longues peines planaient sur tous ceux qui restaient.</p>
+        <p class="pull">Rester à Rockford, c'était attendre que leur nom remonte dans le dossier.</p>
+        <p>Ils n'étaient plus que quatre. Quatre à ne pas avoir été inculpés, quatre à avoir encore le choix. Ils ont choisi de partir avant que quelqu'un ne choisisse pour eux.</p>
+      </div>
+    </article>
+
+    <div class="flight" id="flight">
+      <h3 class="rv">La route</h3>
+      <p class="rv">Trois dans une voiture pleine à craquer. Un dans un avion payé par sa mère. Le même point d'arrivée.</p>
+      <div class="map">
+        <svg viewBox="0 0 1000 300" aria-label="Trajet de Chicago à Sandy Shores">
+          <defs><linearGradient id="flightGrad" x1="1" x2="0"><stop offset="0" stop-color="#38D1C2"/><stop offset=".55" stop-color="#FF4F8B"/><stop offset="1" stop-color="#FFC24B"/></linearGradient></defs>
+          <path class="arc-bg" d="M900 230 Q500 -60 100 230"/>
+          <path class="arc" id="flightArc" d="M900 230 Q500 -60 100 230"/>
+          <circle class="ring" cx="900" cy="230" r="8"/><circle class="dot" cx="900" cy="230" r="8"/>
+          <circle class="ring to" cx="100" cy="230" r="8"/><circle class="dot to" cx="100" cy="230" r="8"/>
+          <text class="lbl" x="900" y="280" text-anchor="middle">Chicago</text>
+          <text class="lbl to" x="100" y="285" text-anchor="middle">Los Santos</text>
+          <g><g transform="scale(-1.3,1.3) translate(-29,-24)"><use href="#car"/></g>
+            <animateMotion id="planeMove" dur="3.4s" begin="indefinite" fill="freeze" rotate="auto-reverse" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".5 0 .2 1"><mpath href="#flightArc"/></animateMotion></g>
+        </svg>
+      </div>
+      <div class="stats">
+        <div class="rv">3<small>sur la route jusqu'à Sandy Shores</small></div>
+        <div class="rv" style="--d:.15s">1<small>en avion, seul, vers la ville</small></div>
+        <div class="rv" style="--d:.3s">2 800 km<small>entre la 11th et le désert</small></div>
+      </div>
+    </div>
+
+    <article class="chapter la">
+      <div class="num">III<small>Sandy Shores</small></div>
+      <div class="body">
+        <h2>Le désert comme point de départ</h2>
+        <p>Kameron et deux autres ont pris la route avec ce qui tenait dans le coffre. Ils ont atterri à Sandy Shores, dans le comté de Blaine, au nord de Los Santos : un endroit où les loyers sont bas, où les voisins posent peu de questions et où personne ne connaît la 11th.</p>
+        <p>Isaiah, lui, est parti de son côté. Sa mère lui a payé un billet pour Los Santos en espérant qu'il y trouve autre chose que le quartier. Il arrive seul en ville, avec l'idée de se reconstruire, sans savoir encore que les autres sont à une heure de route.</p>
+        <p class="pull">Le décor a changé. Les réflexes, les rivalités et les souvenirs, eux, ont fait le voyage.</p>
+        <p>Les rues sont plus larges, la police porte d'autres uniformes, les gangs locaux ont leurs propres codes. Rien de ce qui marchait à Rockford n'est garanti ici. Pour survivre, le groupe va devoir réapprendre à lire une ville.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="block" aria-labelledby="arrivee">
+    <h2 id="arrivee" class="rv from-l">L'arrivée</h2>
+    <p class="sec-intro rv">Ce qui va se passer pendant les premières semaines à Los Santos. Le point de départ du RP, pas une fin écrite d'avance.</p>
+    <div class="tl" id="tl">
+      <svg class="rider" viewBox="0 0 58 28" aria-hidden="true"><use href="#car"/></svg>
+      <div class="step rv"><span class="when">Semaine 1</span><h3>Poser les sacs</h3><p>Trouver un toit à Sandy Shores, une caravane ou une petite maison louée à plusieurs. Compter l'argent qu'il reste, se partager les dépenses. Première règle fixée ensemble : profil bas tant qu'on ne connaît pas la ville.</p><div class="who"><span>Kameron</span><span>Membre III</span><span>Membre IV</span></div></div>
+      <div class="step rv"><span class="when">Semaine 2</span><h3>Lire la ville</h3><p>Descendre à Los Santos, repérer les quartiers, comprendre qui tient quoi. Observer les gangs locaux sans leur marcher sur les pieds. Pendant ce temps, Isaiah enchaîne les galères de son côté : logement, premier job, solitude.</p><div class="who"><span>Tout le groupe</span><span>Isaiah, seul</span></div></div>
+      <div class="step rv"><span class="when">Semaine 3</span><h3>Les retrouvailles</h3><p>Isaiah reprend contact. Le groupe retrouve un des siens, mais pas tout à fait le même : il bosse, il parle de changer. Première tension : est-ce qu'on le suit sur sa voie, ou est-ce qu'il revient à la leur ?</p><div class="who"><span>Isaiah</span><span>Kameron</span><span>Tout le groupe</span></div></div>
+      <div class="step rv"><span class="when">Semaine 4</span><h3>Premiers jobs, premières combines</h3><p>L'argent fond. Certains trouvent un boulot déclaré, d'autres cherchent l'argent rapide. Le groupe commence à se diviser sur la méthode, pas encore sur la loyauté.</p><div class="who"><span>Légal</span><span>Illégal</span></div></div>
+      <div class="step rv"><span class="when">Mois 2</span><h3>Le passé frappe à la porte</h3><p>Une rumeur circule : des Satan Disciples auraient eux aussi atterri à Los Santos. Au même moment, un appel de Chicago rappelle que le dossier RICO n'est pas refermé. Le groupe doit décider qui il veut être ici.</p><div class="who"><span>Rivalité</span><span>Justice</span><span>Choix</span></div></div>
+      <div class="step open rv"><span class="when">Après</span><h3>À écrire en jeu</h3><p>La suite dépend des scènes, des rencontres, des erreurs et des choix des quatre membres. Les objectifs plus bas donnent les directions possibles.</p></div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="membres">
+    <h2 id="membres" class="rv from-l">Les membres</h2>
+    <div class="roster">
+      <a class="mate rv" href="kameron-swain-background.html"><span class="role">La tête froide</span><h3>Kameron Swain</h3><p>Il observe avant de parler et tient le groupe ensemble. Il veut préserver les liens BDG sans savoir encore ce qu'il deviendra sans la 11th.</p><span class="go">Son background<svg><use href="#arrow"/></svg></span></a>
+      <a class="mate rv" href="isaiah-lane-background.html" style="--d:.1s"><span class="role">Le dernier arrivé</span><h3>Isaiah Lane</h3><p>Arrivé seul en ville, en pleine réhabilitation. Il fait le lien entre le monde légal et la rue, et il est tiraillé entre les deux.</p><span class="go">Son background<svg><use href="#arrow"/></svg></span></a>
+      <a class="mate tbd rv" href="personnage-3-background.html" style="--d:.2s"><span class="role">Rôle à définir</span><h3>Membre III</h3><p>Suggestion : le chauffeur, celui qui a conduit jusqu'au désert et connaît chaque route du comté.</p><span class="go">Bientôt<svg><use href="#arrow"/></svg></span></a>
+      <a class="mate tbd rv" href="personnage-4-background.html" style="--d:.3s"><span class="role">Rôle à définir</span><h3>Membre IV</h3><p>Suggestion : l'ancien, le plus vieux des quatre, celui qui se souvient de l'histoire du set avant les autres.</p><span class="go">Bientôt<svg><use href="#arrow"/></svg></span></a>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="codes">
+    <h2 id="codes" class="rv from-l">Les codes</h2>
+    <ol class="codes">
+      <li class="rv"><b>1</b><strong>Personne derrière</strong><span>Quand l'un des quatre tombe, les trois autres viennent.</span></li>
+      <li class="rv" style="--d:.08s"><b>2</b><strong>Chicago reste entre nous</strong><span>On ne raconte pas Rockford ni la RICO aux inconnus.</span></li>
+      <li class="rv" style="--d:.16s"><b>3</b><strong>Profil bas</strong><span>Pas de guerre dans une ville qu'on ne connaît pas encore.</span></li>
+      <li class="rv" style="--d:.24s"><b>4</b><strong>Un pied dans le légal</strong><span>Chacun garde une couverture propre : un job, un toit, un nom.</span></li>
+      <li class="rv" style="--d:.32s"><b>5</b><strong>On décide ensemble</strong><span>Personne ne parle au nom du groupe sans les trois autres.</span></li>
+    </ol>
+  </section>
+
+  <section class="block" aria-labelledby="obj">
+    <h2 id="obj" class="rv from-l">Objectifs</h2>
+    <div class="tabs-bar rv">
+      <div class="tabs" role="tablist" aria-label="Type d'objectifs">
+        <span class="ind t-legal" aria-hidden="true"></span>
+        <button class="tab" role="tab" aria-selected="true" aria-controls="p-legal" id="t-legal" data-t="legal">Légal</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-illegal" id="t-illegal" data-t="illegal" tabindex="-1">Illégal</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-evo" id="t-evo" data-t="evo" tabindex="-1">Évolutif</button>
+      </div>
+      <div class="legend"><span class="chip c">Court terme</span><span class="chip m">Moyen terme</span><span class="chip l">Long terme</span></div>
+    </div>
+
+    <div class="panel on" id="p-legal" data-p="legal" role="tabpanel" aria-labelledby="t-legal">
+      <p class="lead">La façade, mais pas seulement. Pour certains membres, c'est une vraie porte de sortie.</p>
+      <div class="quests">
+        <article class="quest" style="--d:.05s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></div><h4>Un toit pour quatre</h4><ul>
+          <li>Louer une maison à Sandy Shores et s'y installer ensemble.<span class="chip c">Court</span></li>
+          <li>Rassembler l'argent pour l'acheter et en faire la base du groupe.<span class="chip m">Moyen</span></li>
+          <li>Avoir chacun son propre logement, sans perdre le point de ralliement.<span class="chip l">Long</span></li></ul></article>
+        <article class="quest" style="--d:.12s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div><h4>Business</h4><ul>
+          <li>Que chaque membre décroche un emploi déclaré.<span class="chip c">Court</span></li>
+          <li>Ouvrir un garage ou une dépanneuse à Sandy Shores.<span class="chip m">Moyen</span></li>
+          <li>En faire une entreprise reconnue du comté, avec des employés.<span class="chip l">Long</span></li></ul></article>
+        <article class="quest" style="--d:.19s"><div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ic"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8"/></svg></div><h4>Musique</h4><ul>
+          <li>Monter un home studio dans la maison de Sandy Shores.<span class="chip c">Court</span></li>
+          <li>Sortir une mixtape commune : « Loin d'la 11th ».<span class="chip m">Moyen</span></li>
+          <li>Créer un petit label et faire tourner leurs sons à Los Santos.<span class="chip l">Long</span></li></ul></article>
+        <article class="quest" style="--d:.26s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.5-8 11-8 11z"/></svg></div><h4>Réputation</h4><ul>
+          <li>Se faire accepter des habitants de Sandy Shores.<span class="chip c">Court</span></li>
+          <li>Participer à la vie du comté : événements, coups de main, courses.<span class="chip m">Moyen</span></li>
+          <li>Être connus pour ce qu'ils font ici, pas pour d'où ils viennent.<span class="chip l">Long</span></li></ul></article>
+        <article class="quest" style="--d:.33s"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 10h4M7 14h6M15 10h2"/></svg></div><h4>Papiers en règle</h4><ul>
+          <li>Permis, cartes, véhicules déclarés pour tout le monde.<span class="chip c">Court</span></li>
+          <li>Ouvrir des comptes et justifier chaque dollar dépensé.<span class="chip m">Moyen</span></li>
+          <li>Un casier vierge à Los Santos, au moins sur le papier.<span class="chip l">Long</span></li></ul></article>
+        <article class="quest" style="--d:.4s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 15l2-5a2 2 0 0 1 2-1h10a2 2 0 0 1 2 1l2 5v3H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div><h4>Le projet lowrider</h4><ul>
+          <li>Trouver une épave et la remonter ensemble au garage.<span class="chip c">Court</span></li>
+          <li>Participer aux rassemblements de voitures de Los Santos.<span class="chip m">Moyen</span></li>
+          <li>Faire de leurs caisses une signature reconnue en ville.<span class="chip l">Long</span></li></ul></article>
+      </div>
+    </div>
+
+    <div class="panel" id="p-illegal" data-p="illegal" role="tabpanel" aria-labelledby="t-illegal">
+      <p class="lead">Les vieilles habitudes, la pression de l'argent et une rivalité qui n'est pas restée à Chicago. Chaque pas dans ce sens rapproche aussi la police.</p>
+      <div class="quests">
+        <article class="quest" style="--d:.05s"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.5 9a2.5 2.5 0 0 0-2.5-1.5c-1.5 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1 2-2.5 2A2.5 2.5 0 0 1 9.5 15M12 6v1.5M12 16.5V18"/></svg></div><h4>Survivre</h4><ul>
+          <li>Petites combines quand l'argent manque : revente de pièces et d'objets volés.<span class="chip c">Court</span></li>
+          <li>Faire tourner le garage comme couverture pour des véhicules douteux.<span class="chip m">Moyen</span></li>
+          <li>Ne plus dépendre des combines, ou en dépendre complètement.<span class="chip l">Long</span></li></ul></article>
+        <article class="quest" style="--d:.12s"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16.5 14.2c3 .2 5.5 2.2 5.5 5"/></svg></div><h4>Contacts</h4><ul>
+          <li>Identifier les acteurs de la rue à Los Santos et à Blaine County.<span class="chip c">Court</span></li>
+          <li>Trouver des intermédiaires de confiance pour le groupe.<span class="chip m">Moyen</span></li>
+          <li>Devenir eux-mêmes un nom avec qui on doit traiter.<span class="chip l">Long</span></li></ul></article>
+        <article class="quest" style="--d:.19s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h4>Territoire</h4><ul>
+          <li>Repérer un coin du comté que personne ne tient vraiment.<span class="chip c">Court</span></li>
+          <li>S'y implanter sans déclencher de guerre ouverte.<span class="chip m">Moyen</span></li>
+          <li>Faire de Sandy Shores un set BDG reconnu à San Andreas.<span class="chip l">Long</span></li></ul></article>
+        <article class="quest" style="--d:.26s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></div><h4>Rivalité</h4><ul>
+          <li>Vérifier si la rumeur sur les Satan Disciples est vraie.<span class="chip c">Court</span></li>
+          <li>Gérer la première confrontation : éviter, négocier ou répondre.<span class="chip m">Moyen</span></li>
+          <li>Décider si la vieille guerre de Chicago recommence ici.<span class="chip l">Long</span></li></ul></article>
+        <article class="quest" style="--d:.33s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3l18 18M10.6 5.1A9.9 9.9 0 0 1 12 5c5 0 9 4.5 10 7a13 13 0 0 1-3 4.2M6.4 6.4C4.2 7.8 2.7 10 2 12c1 2.5 5 7 10 7 1.7 0 3.3-.5 4.6-1.3"/></svg></div><h4>Discrétion</h4><ul>
+          <li>Rien d'écrit, pas de nom de groupe affiché : la leçon de la RICO.<span class="chip c">Court</span></li>
+          <li>Garder les activités séparées pour qu'aucun membre ne fasse tomber les autres.<span class="chip m">Moyen</span></li>
+          <li>Survivre à une enquête du LSPD ou du shérif sans se trahir.<span class="chip l">Long</span></li></ul></article>
+        <article class="quest" style="--d:.4s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M6 21h12M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/></svg></div><h4>L'ombre de Chicago</h4><ul>
+          <li>Garder un œil sur la procédure RICO depuis Los Santos.<span class="chip c">Court</span></li>
+          <li>Gérer un ancien du set qui débarque et demande de l'aide.<span class="chip m">Moyen</span></li>
+          <li>Faire face si un membre est convoqué ou pressé de témoigner.<span class="chip l">Long</span></li></ul></article>
+      </div>
+    </div>
+
+    <div class="panel" id="p-evo" data-p="evo" role="tabpanel" aria-labelledby="t-evo">
+      <p class="lead">Comment le groupe peut grandir, et les trois directions possibles. Rien n'est figé : ce sont les scènes en jeu qui trancheront.</p>
+      <div class="ladder">
+        <div class="lvl" style="--d:.05s"><span class="tier">I</span><h4>Survie</h4><small>Mois 1</small><p>Un toit, de quoi manger, aucune vague. Se retrouver tous les quatre.</p><div class="bar"><i style="--w:100%"></i></div></div>
+        <div class="lvl" style="--d:.12s"><span class="tier">II</span><h4>Implantation</h4><small>Mois 2 à 3</small><p>Des jobs, des contacts, une base solide à Sandy Shores et des repères en ville.</p><div class="bar"><i style="--w:70%"></i></div></div>
+        <div class="lvl" style="--d:.19s"><span class="tier">III</span><h4>Reconnaissance</h4><small>Mois 3 à 6</small><p>Un nom qui circule, un business, une réputation. Et donc des ennemis.</p><div class="bar"><i style="--w:40%"></i></div></div>
+        <div class="lvl" style="--d:.26s"><span class="tier">IV</span><h4>Héritage</h4><small>Au-delà</small><p>Ce que le groupe laisse à Los Santos, quelle que soit la voie choisie.</p><div class="bar"><i style="--w:12%"></i></div></div>
+      </div>
+      <div class="ways">
+        <div class="way a" style="--d:.3s"><div class="top"><b>A</b><span>La rédemption</span></div><div class="bd"><p>Le garage et la musique prennent le dessus. Isaiah tire le groupe vers le légal et les autres finissent par suivre. Le passé devient une histoire qu'on raconte.</p><p class="risk">Risque : que les anciens de Chicago voient ça comme une trahison.</p></div></div>
+        <div class="way b" style="--d:.38s"><div class="top"><b>B</b><span>Le retour à la rue</span></div><div class="bd"><p>Les combines deviennent un vrai business. Le groupe recrée un set BDG à San Andreas et retrouve sa place, son nom et sa rivalité.</p><p class="risk">Risque : la police, les gangs locaux, et une deuxième RICO.</p></div></div>
+        <div class="way c" style="--d:.46s"><div class="top"><b>C</b><span>La fracture</span></div><div class="bd"><p>Deux visions s'opposent et le groupe se coupe en deux. La loyauté est testée entre ceux qui veulent changer et ceux qui refusent d'oublier.</p><p class="risk">Risque : que le code « personne derrière » ne tienne plus.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="serveur">
+    <h2 id="serveur" class="rv from-l">Pour le serveur</h2>
+    <p class="sec-intro rv">Les scènes que le groupe peut apporter aux autres joueurs.</p>
+    <div class="scenes rv">
+      <span class="scene">Enquêtes LSPD et shérif</span><span class="scene">Rivalité Satan Disciples</span><span class="scene">Garage et dépannage</span>
+      <span class="scene">Scène rap et studio</span><span class="scene">Conflits internes</span><span class="scene">Intégration avec les gangs locaux</span>
+      <span class="scene">Procédure RICO à distance</span><span class="scene">Rassemblements de voitures</span><span class="scene">Vie de quartier à Sandy Shores</span>
+    </div>
+  </section>
+
+</main>
+
+<div class="marquee alt" aria-hidden="true"><div class="track">
+  <span>Kameron Swain <i>Isaiah Lane</i> <b>Membre III</b> <i>Membre IV</i> Loin d'la 11th <b>Sandy Shores</b></span>
+  <span>Kameron Swain <i>Isaiah Lane</i> <b>Membre III</b> <i>Membre IV</i> Loin d'la 11th <b>Sandy Shores</b></span>
+</div></div>
+
+<footer>
+  <svg class="palm p1" viewBox="0 0 220 420" aria-hidden="true"><use href="#palm"/></svg>
+  <svg class="palm p3" viewBox="0 0 220 420" aria-hidden="true"><use href="#palm"/></svg>
+  <span class="sign">Loin d'la 11th</span>
+  <span class="from">de Rockford à San Andreas</span>
+</footer>
+
+<script>
+(()=>{
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.chapter').forEach(ch=>{
+    ch.querySelector('.num').classList.add('rv','pop');
+    ch.querySelectorAll('h2,.body p:not(.pull)').forEach(e=>e.classList.add('rv'));
+    ch.querySelectorAll('.pull').forEach(e=>e.classList.add('rv','from-r'));
+  });
+  document.querySelectorAll('.ticket,.route').forEach(e=>e.classList.add('rv'));
+  document.querySelectorAll('.pull').forEach(p=>{
+    const w=p.textContent.trim().split(/\s+/);
+    p.innerHTML=w.map((x,i)=>`<span class="w" style="transition-delay:${.25+i*.06}s">${x}</span>`).join(' ');
+  });
+
+  // tabs
+  const tabs=[...document.querySelectorAll('.tab')],ind=document.querySelector('.ind');
+  const place=t=>{ind.style.left=t.offsetLeft+'px';ind.style.width=t.offsetWidth+'px';ind.className='ind t-'+t.dataset.t;};
+  const select=t=>{
+    tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;
+      document.getElementById(x.getAttribute('aria-controls')).classList.toggle('on',on);});
+    place(t);
+  };
+  tabs.forEach((t,i)=>{
+    t.addEventListener('click',()=>select(t));
+    t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=tabs[(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length];n.focus();select(n);}});
+  });
+  addEventListener('load',()=>place(tabs.find(t=>t.getAttribute('aria-selected')==='true')));
+  addEventListener('resize',()=>place(tabs.find(t=>t.getAttribute('aria-selected')==='true')));
+  place(tabs[0]);
+
+  const flight=document.getElementById('flight');
+  const all=[...document.querySelectorAll('.rv,.flight')];
+  if(reduce||!('IntersectionObserver' in window)){all.forEach(e=>e.classList.add('in'));document.querySelectorAll('.step').forEach(s=>s.classList.add('lit'));}
+  else{
+    const io=new IntersectionObserver(es=>es.forEach(en=>{
+      if(!en.isIntersecting)return;
+      en.target.classList.add('in');
+      if(en.target===flight){const m=document.getElementById('planeMove');m&&m.beginElement&&m.beginElement();}
+      io.unobserve(en.target);
+    }),{threshold:.18,rootMargin:'0px 0px -6% 0px'});
+    all.forEach(e=>io.observe(e));
+  }
+
+  // parallax, progress, road timeline
+  const sun=document.querySelector('.hero .sun'),inner=document.querySelector('.hero-inner'),bar=document.querySelector('.progress');
+  const near=document.querySelectorAll('.hero .palm.p1,.hero .palm.p3'),far=document.querySelectorAll('.hero .palm.p2,.hero .palm.p4');
+  const tl=document.getElementById('tl'),rider=tl.querySelector('.rider'),steps=[...tl.querySelectorAll('.step')];
+  let tick=false;
+  const run=()=>{
+    const y=scrollY,H=document.documentElement.scrollHeight-innerHeight;
+    bar.style.transform=`scaleX(${H>0?y/H:0})`;
+    if(!reduce&&y<innerHeight*1.2){
+      sun.style.translate=`0 ${y*.35}px`;
+      near.forEach(p=>p.style.translate=`0 ${y*.12}px`);
+      far.forEach(p=>p.style.translate=`0 ${y*.22}px`);
+      inner.style.translate=`0 ${y*.45}px`;inner.style.opacity=Math.max(0,1-y/(innerHeight*.7));
+    }
+    const r=tl.getBoundingClientRect(),mark=innerHeight*.55;
+    const pos=Math.min(Math.max(mark-r.top,14),r.height-14);
+    rider.style.top=pos+'px';
+    steps.forEach(s=>s.classList.toggle('lit',s.offsetTop<=pos+10));
+    tick=false;
+  };
+  addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(run)}},{passive:true});run();
+
+  if(matchMedia('(pointer:fine)').matches&&!reduce){
+    document.querySelectorAll('.quest,.way,.mate,.lvl').forEach(c=>{
+      c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,yy=(e.clientY-r.top)/r.height-.5;
+        c.style.transform=`perspective(800px) rotateY(${x*8}deg) rotateX(${-yy*8}deg) translateY(-4px)`;});
+      c.addEventListener('mouseleave',()=>c.style.transform='');
+    });
+  }
+})();
+</script>
+</body>
+</html>
